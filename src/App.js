@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Navbar from "./Components/Navbar";
@@ -33,18 +33,20 @@ function App() {
   ];
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/works" element={<Works data={studiesData} />} />
-        <Route
-          path="/works/:title"
-          element={<StudyCase data={studiesData} />}
-        />
-        <Route path="/NotFound" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/works" element={<Works data={studiesData} />} />
+          <Route
+            path="/works/:title"
+            element={<StudyCase data={studiesData} />}
+          />
+          <Route path="/NotFound" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
